@@ -90,7 +90,7 @@ function has_blocks_get_callback( array $data_object ) {
 	if ( isset( $data_object['content']['raw'] ) ) {
 		return has_blocks( $data_object['content']['raw'] );
 	}
-	$id   = ! empty( $data_object['wp_id'] ) ? $data_object['wp_id'] : $data_object['id'];
+	$id   = ! empty( $data_object['wp_id'] ) ? $data_object['wp_id'] : (isset($data_object['id']) ? $data_object['id'] : NULL);
 	$post = get_post( $id );
 	if ( ! $post ) {
 		return false;
@@ -107,11 +107,11 @@ function has_blocks_get_callback( array $data_object ) {
  * @return array
  */
 function blocks_get_callback( array $data_object ) {
-	$id = ! empty( $data_object['wp_id'] ) ? $data_object['wp_id'] : $data_object['id'];
+	$id = ! empty( $data_object['wp_id'] ) ? $data_object['wp_id'] : (isset($data_object['id']) ? $data_object['id'] : NULL);
 	if ( isset( $data_object['content']['raw'] ) ) {
 		return get_blocks( $data_object['content']['raw'], $id );
 	}
-	$id     = ! empty( $data_object['wp_id'] ) ? $data_object['wp_id'] : $data_object['id'];
+	$id     = ! empty( $data_object['wp_id'] ) ? $data_object['wp_id'] : (isset($data_object['id']) ? $data_object['id'] : NULL);
 	$post   = get_post( $id );
 	$output = [];
 	if ( ! $post ) {
