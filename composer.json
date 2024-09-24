@@ -20,7 +20,7 @@
         }
     ],
     "require": {
-        "tburry/pquery": "dev-master",
+		"tburry/pquery": "dev-master",
 		"php": "^7.0 || ^8.0",
 		"composer/installers": "^1.10"
 	},
